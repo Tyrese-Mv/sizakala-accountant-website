@@ -30,8 +30,8 @@ const Services = () => {
             <div className="service-description">
               <p>
                 We offer comprehensive audit services to public schools, non-profit
-                organizations, and private companies with affordable tiered pricing
-                tailored to your organization's size and complexity. Our audits
+                organisations, and private companies with affordable tiered pricing
+                tailored to your organisation's size and complexity. Our audits
                 ensure compliance with relevant regulations and provide stakeholders
                 with confidence in your financial statements.
               </p>
@@ -71,7 +71,7 @@ const Services = () => {
             </div>
 
             <div className="audit-categories">
-              <h3 className="category-title">Non-Profit Organizations (NPOs)</h3>
+              <h3 className="category-title">Non-Profit organisations (NPOs)</h3>
               <p className="category-intro">
                 Independent examinations and audits for NPO compliance, donor
                 reporting, and regulatory requirements.

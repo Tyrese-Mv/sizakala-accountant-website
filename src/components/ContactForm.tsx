@@ -5,8 +5,8 @@ interface FormData {
   name: string;
   email: string;
   phone: string;
-  organizationType: string;
-  organizationName: string;
+  organisationType: string;
+  organisationName: string;
   enrollment: string;
   revenue: string;
   service: string;
@@ -18,8 +18,8 @@ const ContactForm = () => {
     name: '',
     email: '',
     phone: '',
-    organizationType: '',
-    organizationName: '',
+    organisationType: '',
+    organisationName: '',
     enrollment: '',
     revenue: '',
     service: '',
@@ -46,8 +46,8 @@ const ContactForm = () => {
         name: '',
         email: '',
         phone: '',
-        organizationType: '',
-        organizationName: '',
+        organisationType: '',
+        organisationName: '',
         enrollment: '',
         revenue: '',
         service: '',
@@ -60,9 +60,9 @@ const ContactForm = () => {
   };
 
   const getEstimatedPrice = () => {
-    const orgType = formData.organizationType;
+    const orgType = formData.organisationType;
 
-    // Helper function to calculate audit price based on organization type
+    // Helper function to calculate audit price based on organisation type
     const getAuditPrice = () => {
       if (orgType === 'school') {
         if (!formData.enrollment) return null;
@@ -193,17 +193,17 @@ const ContactForm = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="organizationType">Organization Type *</label>
+            <label htmlFor="organisationType">organisation Type *</label>
             <select
-              id="organizationType"
-              name="organizationType"
-              value={formData.organizationType}
+              id="organisationType"
+              name="organisationType"
+              value={formData.organisationType}
               onChange={handleChange}
               required
             >
               <option value="">-- Select Type --</option>
               <option value="school">Public School</option>
-              <option value="npo">Non-Profit Organization</option>
+              <option value="npo">Non-Profit organisation</option>
               <option value="company">Private Company</option>
               <option value="individual">Individual</option>
             </select>
@@ -212,30 +212,30 @@ const ContactForm = () => {
 
         <div className="form-row">
           <div className="form-group">
-            <label htmlFor="organizationName">
-              {formData.organizationType === 'school' ? 'School Name' :
-               formData.organizationType === 'npo' ? 'NPO Name' :
-               formData.organizationType === 'company' ? 'Company Name' :
-               formData.organizationType === 'individual' ? 'Full Name' :
-               'Organization/Name'} *
+            <label htmlFor="organisationName">
+              {formData.organisationType === 'school' ? 'School Name' :
+               formData.organisationType === 'npo' ? 'NPO Name' :
+               formData.organisationType === 'company' ? 'Company Name' :
+               formData.organisationType === 'individual' ? 'Full Name' :
+               'organisation/Name'} *
             </label>
             <input
               type="text"
-              id="organizationName"
-              name="organizationName"
-              value={formData.organizationName}
+              id="organisationName"
+              name="organisationName"
+              value={formData.organisationName}
               onChange={handleChange}
               required
               placeholder={
-                formData.organizationType === 'school' ? 'ABC Primary School' :
-                formData.organizationType === 'npo' ? 'Community Development NPO' :
-                formData.organizationType === 'company' ? 'ABC (Pty) Ltd' :
-                'Your name or organization'
+                formData.organisationType === 'school' ? 'ABC Primary School' :
+                formData.organisationType === 'npo' ? 'Community Development NPO' :
+                formData.organisationType === 'company' ? 'ABC (Pty) Ltd' :
+                'Your name or organisation'
               }
             />
           </div>
 
-          {formData.organizationType === 'school' && (
+          {formData.organisationType === 'school' && (
             <div className="form-group">
               <label htmlFor="enrollment">School Enrollment (Number of Learners)</label>
               <input
@@ -250,10 +250,10 @@ const ContactForm = () => {
             </div>
           )}
 
-          {(formData.organizationType === 'npo' || formData.organizationType === 'company') && (
+          {(formData.organisationType === 'npo' || formData.organisationType === 'company') && (
             <div className="form-group">
               <label htmlFor="revenue">
-                Annual {formData.organizationType === 'npo' ? 'Revenue' : 'Turnover'} (R)
+                Annual {formData.organisationType === 'npo' ? 'Revenue' : 'Turnover'} (R)
               </label>
               <input
                 type="number"
@@ -262,7 +262,7 @@ const ContactForm = () => {
                 value={formData.revenue}
                 onChange={handleChange}
                 placeholder={
-                  formData.organizationType === 'npo' ? 'e.g., 750000' : 'e.g., 2500000'
+                  formData.organisationType === 'npo' ? 'e.g., 750000' : 'e.g., 2500000'
                 }
                 min="1"
               />

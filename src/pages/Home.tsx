@@ -13,7 +13,7 @@ const Home = () => {
             <div className="hero-badge">Registered with CIBA since 2015</div>
             <h1>Professional Accounting Services You Can Trust</h1>
             <p className="hero-subtitle">
-              Specialized financial solutions for schools, non-profit organizations,
+              Specialized financial solutions for schools, non-profit organisations,
               and private companies across South Africa
             </p>
             <div className="hero-features">
@@ -54,7 +54,7 @@ const Home = () => {
               <h3>Audit Services</h3>
               <p>
                 Comprehensive financial statement audits for schools, NPOs, and
-                private companies with tiered pricing based on your organization's
+                private companies with tiered pricing based on your organisation's
                 size and complexity.
               </p>
               <ul className="service-features">

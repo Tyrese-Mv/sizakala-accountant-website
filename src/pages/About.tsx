@@ -29,7 +29,7 @@ const About = () => {
             <p>
               What motivates us is the need to provide excellent accounting and
               financial management services to our diverse range of clients,
-              including public schools, non-profit organizations, private companies,
+              including public schools, non-profit organisations, private companies,
               and individuals.
             </p>
           </div>
@@ -42,7 +42,7 @@ const About = () => {
               <h3>Diverse Client Base</h3>
               <p>
                 We serve a wide range of clients including public schools,
-                non-profit organizations, private companies, and individuals. We
+                non-profit organisations, private companies, and individuals. We
                 understand the unique financial management requirements and
                 regulations that govern each sector we work with.
               </p>
@@ -135,7 +135,7 @@ const About = () => {
                 <div className="category-icon">
                   <HiUserGroup />
                 </div>
-                <h3>Non-Profit Organizations</h3>
+                <h3>Non-Profit organisations</h3>
                 <p className="category-description">
                   Comprehensive accounting solutions for NPOs to maintain
                   transparency, accountability, and compliance with regulatory
