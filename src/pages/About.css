@@ -13,7 +13,7 @@
   overflow: hidden;
 
   /* Background Image - REPLACE with professional image */
-  background-image: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1920');
+  background-image: url('src/assets/About-hero-section.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

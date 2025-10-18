@@ -14,7 +14,7 @@
   overflow: hidden;
 
   /* Background Image - REPLACE THIS URL with your professional image */
-  background-image: url('https://images.unsplash.com/photo-1554224311-beee460689930?w=1920');
+  background-image: url('src/assets/Home-Hero-section-image.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -72,6 +72,7 @@
   margin-bottom: 1.5rem;
   line-height: 1.2;
   font-weight: 800;
+  /* color: rgba(83, 153, 233, 0.9); */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
