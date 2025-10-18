@@ -3,23 +3,63 @@
 }
 
 .services-hero {
-  background: linear-gradient(135deg, #1e4a7a 0%, #2d6ba8 100%);
+  position: relative;
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: white;
-  padding: 5rem 2rem 3rem;
+  padding: 8rem 2rem 5rem;
+  overflow: hidden;
+
+  /* Background Image - REPLACE with professional image */
+  background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1920');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Fallback gradient */
+  background-color: #1e4a7a;
+}
+
+/* Dark overlay for text readability */
+.services-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(30, 74, 122, 0.92) 0%,
+    rgba(45, 107, 168, 0.88) 50%,
+    rgba(124, 189, 30, 0.85) 100%
+  );
+  z-index: 1;
+}
+
+.services-hero .container {
+  position: relative;
+  z-index: 2;
   text-align: center;
+  max-width: 900px;
 }
 
 .services-hero h1 {
-  font-size: 3rem;
+  font-size: 3.5rem;
   margin-bottom: 1rem;
-  font-weight: 700;
+  font-weight: 800;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .services-hero .lead {
-  font-size: 1.3rem;
-  color: #e0e0e0;
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.95);
   max-width: 700px;
   margin: 0 auto;
+  line-height: 1.6;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .service-section {
@@ -76,6 +116,32 @@
   font-size: 1.2rem;
   line-height: 1.8;
   color: #666;
+}
+
+/* Audit Categories */
+.audit-categories {
+  margin-bottom: 4rem;
+}
+
+.category-title {
+  font-size: 2rem;
+  color: #1e4a7a;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+  text-align: center;
+  border-bottom: 3px solid #7cbd1e;
+  padding-bottom: 0.5rem;
+  display: inline-block;
+  width: 100%;
+}
+
+.category-intro {
+  text-align: center;
+  font-size: 1.05rem;
+  color: #666;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
 }
 
 .service-features-grid {
@@ -281,6 +347,11 @@
 }
 
 @media screen and (max-width: 768px) {
+  .services-hero {
+    min-height: 40vh;
+    padding: 6rem 1.5rem 4rem;
+  }
+
   .services-hero h1 {
     font-size: 2.2rem;
   }
@@ -310,5 +381,15 @@
   .btn {
     width: 100%;
     max-width: 300px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .services-hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .services-hero .lead {
+    font-size: 1rem;
   }
 }

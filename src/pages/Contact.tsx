@@ -109,8 +109,8 @@ const Contact = () => {
                   <HiChartBar style={{ display: 'inline', marginRight: '0.5rem' }} />
                   Audit Services
                 </h3>
-                <p>Complete financial statement audits for public schools</p>
-                <p className="service-price">R 2,500</p>
+                <p>Financial statement audits for schools, NPOs, and companies</p>
+                <p className="service-price">From R 2,500</p>
               </div>
               <div className="service-option">
                 <h3>

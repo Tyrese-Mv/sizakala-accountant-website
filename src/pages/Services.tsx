@@ -23,18 +23,117 @@ const Services = () => {
               <HiChartBar />
             </div>
             <h2>Audit Services</h2>
-            <p className="service-price">R 2,500</p>
+            <p className="service-price">From R 2,500</p>
           </div>
 
           <div className="service-details">
             <div className="service-description">
               <p>
-                We offer comprehensive audit services to public schools at a fixed
-                fee of R 2,500, supplemented by free training. Our audits are
-                conducted in accordance with Section 43 of the South African Schools
-                Act No. 84 of 1996 as required by the Head of Department for
-                Education.
+                We offer comprehensive audit services to public schools, non-profit
+                organizations, and private companies with affordable tiered pricing
+                tailored to your organization's size and complexity. Our audits
+                ensure compliance with relevant regulations and provide stakeholders
+                with confidence in your financial statements.
               </p>
+            </div>
+
+            <div className="audit-categories">
+              <h3 className="category-title">Public Schools</h3>
+              <p className="category-intro">
+                Audits conducted in accordance with Section 43 of the South African
+                Schools Act No. 84 of 1996, including free training for school staff.
+              </p>
+              <div className="pricing-grid">
+                <div className="pricing-card">
+                  <h3>Small Schools</h3>
+                  <p className="price">R 2,500</p>
+                  <p className="school-size">Less than 200 learners</p>
+                </div>
+
+                <div className="pricing-card">
+                  <h3>Medium Schools</h3>
+                  <p className="price">R 3,500</p>
+                  <p className="school-size">200-399 learners</p>
+                </div>
+
+                <div className="pricing-card">
+                  <h3>Large Schools</h3>
+                  <p className="price">R 4,500</p>
+                  <p className="school-size">400-599 learners</p>
+                </div>
+
+                <div className="pricing-card">
+                  <h3>Extra Large Schools</h3>
+                  <p className="price">R 5,500</p>
+                  <p className="school-size">600+ learners</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="audit-categories">
+              <h3 className="category-title">Non-Profit Organizations (NPOs)</h3>
+              <p className="category-intro">
+                Independent examinations and audits for NPO compliance, donor
+                reporting, and regulatory requirements.
+              </p>
+              <div className="pricing-grid">
+                <div className="pricing-card">
+                  <h3>Small NPOs</h3>
+                  <p className="price">R 2,500</p>
+                  <p className="school-size">Revenue less than R500k</p>
+                </div>
+
+                <div className="pricing-card">
+                  <h3>Medium NPOs</h3>
+                  <p className="price">R 4,000</p>
+                  <p className="school-size">Revenue R500k - R2m</p>
+                </div>
+
+                <div className="pricing-card">
+                  <h3>Large NPOs</h3>
+                  <p className="price">R 6,000</p>
+                  <p className="school-size">Revenue R2m - R5m</p>
+                </div>
+
+                <div className="pricing-card">
+                  <h3>Very Large NPOs</h3>
+                  <p className="price">R 8,500</p>
+                  <p className="school-size">Revenue above R5m</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="audit-categories">
+              <h3 className="category-title">Private Companies</h3>
+              <p className="category-intro">
+                Financial statement audits and independent reviews for small to
+                medium enterprises ensuring compliance and accuracy.
+              </p>
+              <div className="pricing-grid">
+                <div className="pricing-card">
+                  <h3>Small Companies</h3>
+                  <p className="price">R 3,500</p>
+                  <p className="school-size">Turnover less than R1m</p>
+                </div>
+
+                <div className="pricing-card">
+                  <h3>Medium Companies</h3>
+                  <p className="price">R 5,500</p>
+                  <p className="school-size">Turnover R1m - R5m</p>
+                </div>
+
+                <div className="pricing-card">
+                  <h3>Large Companies</h3>
+                  <p className="price">R 8,000</p>
+                  <p className="school-size">Turnover R5m - R10m</p>
+                </div>
+
+                <div className="pricing-card">
+                  <h3>Very Large Companies</h3>
+                  <p className="price">R 12,000</p>
+                  <p className="school-size">Turnover above R10m</p>
+                </div>
+              </div>
             </div>
 
             <div className="service-features-grid">
@@ -53,7 +152,7 @@ const Services = () => {
                 <h3>Free Training Included</h3>
                 <ul>
                   <li>Budgeting process</li>
-                  <li>Recording of receipts and payments</li>
+                  {/* <li>Recording of receipts and payments</li> */}
                   <li>Travel and reimbursement costs</li>
                   <li>Petty cash management</li>
                   <li>Procurement process (Section 21 schools)</li>

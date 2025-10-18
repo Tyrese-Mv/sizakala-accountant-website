@@ -7,19 +7,35 @@ const Home = () => {
     <div className="home">
       {/* Hero Section */}
       <section className="hero">
+        <div className="hero-overlay"></div>
         <div className="hero-container">
           <div className="hero-content">
-            <h1>Professional Accounting Services for Public Schools</h1>
+            <div className="hero-badge">Registered with CIBA since 2015</div>
+            <h1>Professional Accounting Services You Can Trust</h1>
             <p className="hero-subtitle">
-              Effective and efficient financial management for South African
-              schools since 2015
+              Specialized financial solutions for schools, non-profit organizations,
+              and private companies across South Africa
             </p>
+            <div className="hero-features">
+              <div className="hero-feature">
+                <span className="feature-icon">✓</span>
+                <span>CIBA Certified</span>
+              </div>
+              <div className="hero-feature">
+                <span className="feature-icon">✓</span>
+                <span>Affordable Pricing</span>
+              </div>
+              <div className="hero-feature">
+                <span className="feature-icon">✓</span>
+                <span>Expert Team</span>
+              </div>
+            </div>
             <div className="hero-buttons">
-              <Link to="/services" className="btn btn-primary">
-                Our Services
+              <Link to="/services" className="btn btn-primary btn-large">
+                Explore Our Services
               </Link>
-              <Link to="/contact" className="btn btn-secondary">
-                Get in Touch
+              <Link to="/contact" className="btn btn-secondary btn-large">
+                Get a Free Quote
               </Link>
             </div>
           </div>
@@ -37,14 +53,15 @@ const Home = () => {
               </div>
               <h3>Audit Services</h3>
               <p>
-                Comprehensive school financial statement audits in accordance with
-                Section 43 of the South African Schools Act No. 84 of 1996.
+                Comprehensive financial statement audits for schools, NPOs, and
+                private companies with tiered pricing based on your organization's
+                size and complexity.
               </p>
               <ul className="service-features">
-                <li>R 2,500 audit fee</li>
-                <li>Completed within 5 days</li>
-                <li>Free training included</li>
-                <li>We collect records from your school</li>
+                <li>From R 2,500 (tiered pricing)</li>
+                <li>Schools, NPOs & Companies</li>
+                <li>Compliance & regulatory audits</li>
+                <li>Professional & reliable service</li>
               </ul>
               <Link to="/services#audit" className="btn btn-outline">
                 Learn More

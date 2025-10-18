@@ -18,7 +18,10 @@
   --white: #ffffff;
 
   /* Typography */
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-heading: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  font-family: var(--font-body);
   line-height: 1.6;
   font-weight: 400;
 
@@ -36,6 +39,9 @@ body {
   background-color: var(--white);
   min-width: 320px;
   min-height: 100vh;
+  font-family: var(--font-body);
+  font-weight: 400;
+  letter-spacing: -0.01em;
 }
 
 #root {
@@ -45,9 +51,23 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
   font-weight: 700;
   line-height: 1.2;
   color: var(--primary-blue);
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-weight: 800;
+}
+
+h2 {
+  font-weight: 700;
+}
+
+h3 {
+  font-weight: 600;
 }
 
 p {

@@ -5,8 +5,10 @@ interface FormData {
   name: string;
   email: string;
   phone: string;
-  schoolName: string;
+  organizationType: string;
+  organizationName: string;
   enrollment: string;
+  revenue: string;
   service: string;
   message: string;
 }
@@ -16,8 +18,10 @@ const ContactForm = () => {
     name: '',
     email: '',
     phone: '',
-    schoolName: '',
+    organizationType: '',
+    organizationName: '',
     enrollment: '',
+    revenue: '',
     service: '',
     message: '',
   });
@@ -42,8 +46,10 @@ const ContactForm = () => {
         name: '',
         email: '',
         phone: '',
-        schoolName: '',
+        organizationType: '',
+        organizationName: '',
         enrollment: '',
+        revenue: '',
         service: '',
         message: '',
       });
@@ -54,14 +60,73 @@ const ContactForm = () => {
   };
 
   const getEstimatedPrice = () => {
-    if (formData.service === 'audit') return 'R 2,500';
-    if (formData.service === 'bookkeeping' && formData.enrollment) {
-      const enrollment = parseInt(formData.enrollment);
-      if (enrollment < 200) return 'R 150/month';
-      if (enrollment < 400) return 'R 300/month';
-      if (enrollment < 600) return 'R 400/month';
-      return 'R 500/month';
+    const orgType = formData.organizationType;
+
+    // Helper function to calculate audit price based on organization type
+    const getAuditPrice = () => {
+      if (orgType === 'school') {
+        if (!formData.enrollment) return null;
+        const enrollment = parseInt(formData.enrollment);
+        if (enrollment < 200) return 'R 2,500';
+        if (enrollment < 400) return 'R 3,500';
+        if (enrollment < 600) return 'R 4,500';
+        return 'R 5,500';
+      }
+
+      if (orgType === 'npo') {
+        if (!formData.revenue) return null;
+        const revenue = parseInt(formData.revenue);
+        if (revenue < 500000) return 'R 2,500';
+        if (revenue < 2000000) return 'R 4,000';
+        if (revenue < 5000000) return 'R 6,000';
+        return 'R 8,500';
+      }
+
+      if (orgType === 'company') {
+        if (!formData.revenue) return null;
+        const turnover = parseInt(formData.revenue);
+        if (turnover < 1000000) return 'R 3,500';
+        if (turnover < 5000000) return 'R 5,500';
+        if (turnover < 10000000) return 'R 8,000';
+        return 'R 12,000';
+      }
+
+      return null;
+    };
+
+    // Helper function to calculate bookkeeping price (schools only for now)
+    const getBookkeepingPrice = () => {
+      if (orgType === 'school') {
+        if (!formData.enrollment) return null;
+        const enrollment = parseInt(formData.enrollment);
+        if (enrollment < 200) return 'R 150/month';
+        if (enrollment < 400) return 'R 300/month';
+        if (enrollment < 600) return 'R 400/month';
+        return 'R 500/month';
+      }
+      return null;
+    };
+
+    if (formData.service === 'audit') {
+      return getAuditPrice();
     }
+
+    if (formData.service === 'bookkeeping') {
+      return getBookkeepingPrice();
+    }
+
+    if (formData.service === 'both') {
+      const auditPrice = getAuditPrice();
+      const bookkeepingPrice = getBookkeepingPrice();
+
+      if (auditPrice && bookkeepingPrice) {
+        return `Audit: ${auditPrice} + Bookkeeping: ${bookkeepingPrice}`;
+      }
+
+      if (auditPrice) return `Audit: ${auditPrice}`;
+      if (bookkeepingPrice) return `Bookkeeping: ${bookkeepingPrice}`;
+    }
+
     return null;
   };
 
@@ -128,49 +193,98 @@ const ContactForm = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="schoolName">School Name *</label>
-            <input
-              type="text"
-              id="schoolName"
-              name="schoolName"
-              value={formData.schoolName}
+            <label htmlFor="organizationType">Organization Type *</label>
+            <select
+              id="organizationType"
+              name="organizationType"
+              value={formData.organizationType}
               onChange={handleChange}
               required
-              placeholder="ABC Primary School"
-            />
+            >
+              <option value="">-- Select Type --</option>
+              <option value="school">Public School</option>
+              <option value="npo">Non-Profit Organization</option>
+              <option value="company">Private Company</option>
+              <option value="individual">Individual</option>
+            </select>
           </div>
         </div>
 
         <div className="form-row">
           <div className="form-group">
-            <label htmlFor="service">Service Needed *</label>
-            <select
-              id="service"
-              name="service"
-              value={formData.service}
+            <label htmlFor="organizationName">
+              {formData.organizationType === 'school' ? 'School Name' :
+               formData.organizationType === 'npo' ? 'NPO Name' :
+               formData.organizationType === 'company' ? 'Company Name' :
+               formData.organizationType === 'individual' ? 'Full Name' :
+               'Organization/Name'} *
+            </label>
+            <input
+              type="text"
+              id="organizationName"
+              name="organizationName"
+              value={formData.organizationName}
               onChange={handleChange}
               required
-            >
-              <option value="">-- Select a Service --</option>
-              <option value="audit">Audit Services (R 2,500)</option>
-              <option value="bookkeeping">Bookkeeping Services</option>
-              <option value="both">Both Services</option>
-              <option value="consultation">Just Consultation</option>
-            </select>
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="enrollment">School Enrollment (Number of Learners)</label>
-            <input
-              type="number"
-              id="enrollment"
-              name="enrollment"
-              value={formData.enrollment}
-              onChange={handleChange}
-              placeholder="e.g., 350"
-              min="1"
+              placeholder={
+                formData.organizationType === 'school' ? 'ABC Primary School' :
+                formData.organizationType === 'npo' ? 'Community Development NPO' :
+                formData.organizationType === 'company' ? 'ABC (Pty) Ltd' :
+                'Your name or organization'
+              }
             />
           </div>
+
+          {formData.organizationType === 'school' && (
+            <div className="form-group">
+              <label htmlFor="enrollment">School Enrollment (Number of Learners)</label>
+              <input
+                type="number"
+                id="enrollment"
+                name="enrollment"
+                value={formData.enrollment}
+                onChange={handleChange}
+                placeholder="e.g., 350"
+                min="1"
+              />
+            </div>
+          )}
+
+          {(formData.organizationType === 'npo' || formData.organizationType === 'company') && (
+            <div className="form-group">
+              <label htmlFor="revenue">
+                Annual {formData.organizationType === 'npo' ? 'Revenue' : 'Turnover'} (R)
+              </label>
+              <input
+                type="number"
+                id="revenue"
+                name="revenue"
+                value={formData.revenue}
+                onChange={handleChange}
+                placeholder={
+                  formData.organizationType === 'npo' ? 'e.g., 750000' : 'e.g., 2500000'
+                }
+                min="1"
+              />
+            </div>
+          )}
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="service">Service Needed *</label>
+          <select
+            id="service"
+            name="service"
+            value={formData.service}
+            onChange={handleChange}
+            required
+          >
+            <option value="">-- Select a Service --</option>
+            <option value="audit">Audit Services (From R 2,500)</option>
+            <option value="bookkeeping">Bookkeeping Services (From R 150/month - Schools)</option>
+            <option value="both">Both Services</option>
+            <option value="consultation">Just Consultation</option>
+          </select>
         </div>
 
         {estimatedPrice && (

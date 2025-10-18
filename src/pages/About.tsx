@@ -27,9 +27,10 @@ const About = () => {
               Practice (BAPS).
             </p>
             <p>
-              What motivates us is the need to provide excellent services to the
-              schools which results in effective and efficient financial management
-              of the schools.
+              What motivates us is the need to provide excellent accounting and
+              financial management services to our diverse range of clients,
+              including public schools, non-profit organizations, private companies,
+              and individuals.
             </p>
           </div>
 
@@ -38,11 +39,12 @@ const About = () => {
               <div className="detail-icon">
                 <HiAcademicCap />
               </div>
-              <h3>Our Specialization</h3>
+              <h3>Diverse Client Base</h3>
               <p>
-                We focus exclusively on public schools, understanding the unique
-                financial management requirements and regulations that govern school
-                finances in South Africa.
+                We serve a wide range of clients including public schools,
+                non-profit organizations, private companies, and individuals. We
+                understand the unique financial management requirements and
+                regulations that govern each sector we work with.
               </p>
             </div>
 
@@ -52,9 +54,10 @@ const About = () => {
               </div>
               <h3>Compliance & Standards</h3>
               <p>
-                Financial statements of schools are audited in terms of Section 43
-                of the South African Schools Act No. 84 of 1996 as required by the
-                Head of Department for Education.
+                We ensure all our clients meet their regulatory and compliance
+                requirements, whether it's school audits per the SA Schools Act,
+                NPO financial reporting, company tax compliance, or individual tax
+                returns.
               </p>
             </div>
 
@@ -100,20 +103,111 @@ const About = () => {
             </div>
           </div>
 
+          <div className="client-categories-section">
+            <h2>Who We Serve</h2>
+            <p className="section-intro">
+              We provide tailored accounting and financial management services to
+              meet the unique needs of each client category.
+            </p>
+
+            <div className="categories-grid">
+              <div className="category-card">
+                <div className="category-icon">
+                  <HiAcademicCap />
+                </div>
+                <h3>Public Schools</h3>
+                <p className="category-description">
+                  Specialized financial services for public schools to ensure
+                  compliance with the South African Schools Act and Department of
+                  Education requirements.
+                </p>
+                <ul className="category-services">
+                  <li>Financial statement audits (Section 43 compliance)</li>
+                  <li>Monthly and quarterly bookkeeping</li>
+                  <li>Budget preparation and monitoring</li>
+                  <li>Financial training for school staff</li>
+                  <li>Section 21 procurement assistance</li>
+                  <li>Asset register management</li>
+                </ul>
+              </div>
+
+              <div className="category-card">
+                <div className="category-icon">
+                  <HiUserGroup />
+                </div>
+                <h3>Non-Profit Organizations</h3>
+                <p className="category-description">
+                  Comprehensive accounting solutions for NPOs to maintain
+                  transparency, accountability, and compliance with regulatory
+                  requirements.
+                </p>
+                <ul className="category-services">
+                  <li>Financial statement preparation and audits</li>
+                  <li>NPO registration and compliance</li>
+                  <li>Grant management and reporting</li>
+                  <li>Donor financial reports</li>
+                  <li>Annual returns and submissions</li>
+                  <li>Bookkeeping and financial management</li>
+                </ul>
+              </div>
+
+              <div className="category-card">
+                <div className="category-icon">
+                  <HiClipboardList />
+                </div>
+                <h3>Private Companies</h3>
+                <p className="category-description">
+                  Professional accounting services to help private companies
+                  maintain accurate financial records and meet tax obligations.
+                </p>
+                <ul className="category-services">
+                  <li>Financial statement preparation</li>
+                  <li>Tax planning and compliance</li>
+                  <li>VAT registration and submissions</li>
+                  <li>PAYE and payroll management</li>
+                  <li>Annual financial statements</li>
+                  <li>Management accounts and reporting</li>
+                </ul>
+              </div>
+
+              <div className="category-card">
+                <div className="category-icon">
+                  <HiUserGroup />
+                </div>
+                <h3>Individuals</h3>
+                <p className="category-description">
+                  Personal accounting and tax services to help individuals manage
+                  their finances and stay compliant with SARS requirements.
+                </p>
+                <ul className="category-services">
+                  <li>Personal tax returns (IRP5/IT3a)</li>
+                  <li>Tax planning and optimization</li>
+                  <li>SARS dispute resolution</li>
+                  <li>Investment income tax filing</li>
+                  <li>Rental income declarations</li>
+                  <li>Tax refund assistance</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
           <div className="mission-section">
             <h2>Our Mission</h2>
             <p>
-              To help schools provide high quality services to learners by ensuring
-              the financial health of public schools is maintained in a sound state.
-              Under self-management, schools are the primary unit of improvement and
-              development.
+              To provide excellent accounting and financial management services
+              that empower our clients to achieve their goals. Whether it's
+              helping schools maintain sound financial health, ensuring NPOs meet
+              their compliance obligations, supporting companies with tax
+              efficiency, or assisting individuals with their personal finances,
+              we are committed to delivering professional, reliable, and
+              affordable services.
             </p>
             <p>
-              Training on the financial framework of the school helps everyone at
-              the school to get financial management right, first time and every
-              time. It removes doubt, confusion, and ignorance on financial matters
-              of the school and stipulates minimum requirements to be met to comply
-              with preferred best practice.
+              We believe in building lasting relationships with our clients through
+              quality service delivery, professional integrity, and continuous
+              support. Our training and advisory services help clients understand
+              their financial obligations and best practices, removing doubt and
+              confusion while ensuring compliance with all relevant regulations.
             </p>
           </div>
         </div>
