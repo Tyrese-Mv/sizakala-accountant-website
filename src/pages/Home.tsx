@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { HiChartBar, HiBookOpen, HiCheckCircle } from 'react-icons/hi';
 import './Home.css';
 
@@ -9,45 +10,108 @@ const Home = () => {
       <section className="hero">
         <div className="hero-overlay"></div>
         <div className="hero-container">
-          <div className="hero-content">
-            <div className="hero-badge">Registered with CIBA since 2015</div>
-            <h1>Professional Accounting Services You Can Trust</h1>
-            <p className="hero-subtitle">
+          <motion.div
+            className="hero-content"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <motion.div
+              className="hero-badge"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              Registered with CIBA since 2015
+            </motion.div>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+            >
+              Professional Accounting Services You Can Trust
+            </motion.h1>
+            <motion.p
+              className="hero-subtitle"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
               Specialized financial solutions for schools, non-profit organisations,
               and private companies across South Africa
-            </p>
-            <div className="hero-features">
-              <div className="hero-feature">
+            </motion.p>
+            <motion.div
+              className="hero-features"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+            >
+              <motion.div
+                className="hero-feature"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4, delay: 0.8 }}
+              >
                 <span className="feature-icon">✓</span>
                 <span>CIBA Certified</span>
-              </div>
-              <div className="hero-feature">
+              </motion.div>
+              <motion.div
+                className="hero-feature"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4, delay: 0.9 }}
+              >
                 <span className="feature-icon">✓</span>
                 <span>Affordable Pricing</span>
-              </div>
-              <div className="hero-feature">
+              </motion.div>
+              <motion.div
+                className="hero-feature"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4, delay: 1.0 }}
+              >
                 <span className="feature-icon">✓</span>
                 <span>Expert Team</span>
-              </div>
-            </div>
-            <div className="hero-buttons">
+              </motion.div>
+            </motion.div>
+            <motion.div
+              className="hero-buttons"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.1 }}
+            >
               <Link to="/services" className="btn btn-primary btn-large">
                 Explore Our Services
               </Link>
               <Link to="/contact" className="btn btn-secondary btn-large">
                 Get a Free Quote
               </Link>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* Services Overview */}
       <section className="services-overview">
         <div className="container">
-          <h2 className="section-title">What We Offer</h2>
+          <motion.h2
+            className="section-title"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+          >
+            What We Offer
+          </motion.h2>
           <div className="services-grid">
-            <div className="service-card">
+            <motion.div
+              className="service-card"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+            >
               <div className="service-icon">
                 <HiChartBar />
               </div>
@@ -66,9 +130,16 @@ const Home = () => {
               <Link to="/services#audit" className="btn btn-outline">
                 Learn More
               </Link>
-            </div>
+            </motion.div>
 
-            <div className="service-card">
+            <motion.div
+              className="service-card"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+            >
               <div className="service-icon">
                 <HiBookOpen />
               </div>
@@ -86,7 +157,7 @@ const Home = () => {
               <Link to="/services#bookkeeping" className="btn btn-outline">
                 Learn More
               </Link>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -94,9 +165,23 @@ const Home = () => {
       {/* Why Choose Us */}
       <section className="why-choose-us">
         <div className="container">
-          <h2 className="section-title">Why Choose Sizakala?</h2>
+          <motion.h2
+            className="section-title"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+          >
+            Why Choose Sizakala?
+          </motion.h2>
           <div className="benefits-grid">
-            <div className="benefit-item">
+            <motion.div
+              className="benefit-item"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
               <div className="benefit-icon">
                 <HiCheckCircle />
               </div>
@@ -105,8 +190,14 @@ const Home = () => {
                 Registered with the Chartered Institute for Business Accountants
                 (CIBA) with Business Accountants in Practice (BAP) designation
               </p>
-            </div>
-            <div className="benefit-item">
+            </motion.div>
+            <motion.div
+              className="benefit-item"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
               <div className="benefit-icon">
                 <HiCheckCircle />
               </div>
@@ -115,8 +206,14 @@ const Home = () => {
                 We focus exclusively on public schools, understanding your unique
                 financial management requirements
               </p>
-            </div>
-            <div className="benefit-item">
+            </motion.div>
+            <motion.div
+              className="benefit-item"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
               <div className="benefit-icon">
                 <HiCheckCircle />
               </div>
@@ -125,8 +222,14 @@ const Home = () => {
                 Reasonable fees structured to fit your school's budget, with tiered
                 pricing based on enrollment
               </p>
-            </div>
-            <div className="benefit-item">
+            </motion.div>
+            <motion.div
+              className="benefit-item"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
               <div className="benefit-icon">
                 <HiCheckCircle />
               </div>
@@ -135,7 +238,7 @@ const Home = () => {
                 Complimentary training on financial compliance and record-keeping
                 with our audit services
               </p>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -143,19 +246,37 @@ const Home = () => {
       {/* CTA Section */}
       <section className="cta-section">
         <div className="container">
-          <h2>Ready to Improve Your School's Financial Management?</h2>
-          <p>
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+          >
+            Ready to Improve Your School's Financial Management?
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
             Contact us today to discuss how we can help your school maintain sound
             financial health
-          </p>
-          <div className="cta-buttons">
+          </motion.p>
+          <motion.div
+            className="cta-buttons"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
             <Link to="/contact" className="btn btn-primary">
               Contact Us
             </Link>
             <a href="tel:0670343472" className="btn btn-secondary">
               Call: 067 034 3472
             </a>
-          </div>
+          </motion.div>
         </div>
       </section>
     </div>

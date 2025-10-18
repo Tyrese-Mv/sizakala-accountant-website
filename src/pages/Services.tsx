@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { HiChartBar, HiBookOpen } from 'react-icons/hi';
 import './Services.css';
 
@@ -8,26 +9,49 @@ const Services = () => {
       {/* Hero Section */}
       <section className="services-hero">
         <div className="container">
-          <h1>Our Services</h1>
-          <p className="lead">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            Our Services
+          </motion.h1>
+          <motion.p
+            className="lead"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
             Comprehensive accounting solutions tailored for public schools
-          </p>
+          </motion.p>
         </div>
       </section>
 
       {/* Audit Services */}
       <section className="service-section" id="audit">
         <div className="container">
-          <div className="service-header">
+          <motion.div
+            className="service-header"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+          >
             <div className="service-icon-large">
               <HiChartBar />
             </div>
             <h2>Audit Services</h2>
             <p className="service-price">From R 2,500</p>
-          </div>
+          </motion.div>
 
           <div className="service-details">
-            <div className="service-description">
+            <motion.div
+              className="service-description"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
               <p>
                 We offer comprehensive audit services to public schools, non-profit
                 organisations, and private companies with affordable tiered pricing
@@ -35,106 +59,146 @@ const Services = () => {
                 ensure compliance with relevant regulations and provide stakeholders
                 with confidence in your financial statements.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="audit-categories">
+            <motion.div
+              className="audit-categories"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6 }}
+            >
               <h3 className="category-title">Public Schools</h3>
               <p className="category-intro">
                 Audits conducted in accordance with Section 43 of the South African
                 Schools Act No. 84 of 1996, including free training for school staff.
               </p>
               <div className="pricing-grid">
-                <div className="pricing-card">
+                <motion.div
+                  className="pricing-card"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.1 }}
+                  whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                >
                   <h3>Small Schools</h3>
                   <p className="price">R 2,500</p>
                   <p className="school-size">Less than 200 learners</p>
-                </div>
+                </motion.div>
 
-                <div className="pricing-card">
+                <motion.div
+                  className="pricing-card"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.2 }}
+                  whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                >
                   <h3>Medium Schools</h3>
                   <p className="price">R 3,500</p>
                   <p className="school-size">200-399 learners</p>
-                </div>
+                </motion.div>
 
-                <div className="pricing-card">
+                <motion.div
+                  className="pricing-card"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.3 }}
+                  whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                >
                   <h3>Large Schools</h3>
                   <p className="price">R 4,500</p>
                   <p className="school-size">400-599 learners</p>
-                </div>
+                </motion.div>
 
-                <div className="pricing-card">
+                <motion.div
+                  className="pricing-card"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.4 }}
+                  whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                >
                   <h3>Extra Large Schools</h3>
                   <p className="price">R 5,500</p>
                   <p className="school-size">600+ learners</p>
-                </div>
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="audit-categories">
+            <motion.div
+              className="audit-categories"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6 }}
+            >
               <h3 className="category-title">Non-Profit organisations (NPOs)</h3>
               <p className="category-intro">
                 Independent examinations and audits for NPO compliance, donor
                 reporting, and regulatory requirements.
               </p>
               <div className="pricing-grid">
-                <div className="pricing-card">
-                  <h3>Small NPOs</h3>
-                  <p className="price">R 2,500</p>
-                  <p className="school-size">Revenue less than R500k</p>
-                </div>
-
-                <div className="pricing-card">
-                  <h3>Medium NPOs</h3>
-                  <p className="price">R 4,000</p>
-                  <p className="school-size">Revenue R500k - R2m</p>
-                </div>
-
-                <div className="pricing-card">
-                  <h3>Large NPOs</h3>
-                  <p className="price">R 6,000</p>
-                  <p className="school-size">Revenue R2m - R5m</p>
-                </div>
-
-                <div className="pricing-card">
-                  <h3>Very Large NPOs</h3>
-                  <p className="price">R 8,500</p>
-                  <p className="school-size">Revenue above R5m</p>
-                </div>
+                {[
+                  { title: 'Small NPOs', price: 'R 2,500', size: 'Revenue less than R500k', delay: 0.1 },
+                  { title: 'Medium NPOs', price: 'R 4,000', size: 'Revenue R500k - R2m', delay: 0.2 },
+                  { title: 'Large NPOs', price: 'R 6,000', size: 'Revenue R2m - R5m', delay: 0.3 },
+                  { title: 'Very Large NPOs', price: 'R 8,500', size: 'Revenue above R5m', delay: 0.4 },
+                ].map((card, index) => (
+                  <motion.div
+                    key={index}
+                    className="pricing-card"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: card.delay }}
+                    whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                  >
+                    <h3>{card.title}</h3>
+                    <p className="price">{card.price}</p>
+                    <p className="school-size">{card.size}</p>
+                  </motion.div>
+                ))}
               </div>
-            </div>
+            </motion.div>
 
-            <div className="audit-categories">
+            <motion.div
+              className="audit-categories"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6 }}
+            >
               <h3 className="category-title">Private Companies</h3>
               <p className="category-intro">
                 Financial statement audits and independent reviews for small to
                 medium enterprises ensuring compliance and accuracy.
               </p>
               <div className="pricing-grid">
-                <div className="pricing-card">
-                  <h3>Small Companies</h3>
-                  <p className="price">R 3,500</p>
-                  <p className="school-size">Turnover less than R1m</p>
-                </div>
-
-                <div className="pricing-card">
-                  <h3>Medium Companies</h3>
-                  <p className="price">R 5,500</p>
-                  <p className="school-size">Turnover R1m - R5m</p>
-                </div>
-
-                <div className="pricing-card">
-                  <h3>Large Companies</h3>
-                  <p className="price">R 8,000</p>
-                  <p className="school-size">Turnover R5m - R10m</p>
-                </div>
-
-                <div className="pricing-card">
-                  <h3>Very Large Companies</h3>
-                  <p className="price">R 12,000</p>
-                  <p className="school-size">Turnover above R10m</p>
-                </div>
+                {[
+                  { title: 'Small Companies', price: 'R 3,500', size: 'Turnover less than R1m', delay: 0.1 },
+                  { title: 'Medium Companies', price: 'R 5,500', size: 'Turnover R1m - R5m', delay: 0.2 },
+                  { title: 'Large Companies', price: 'R 8,000', size: 'Turnover R5m - R10m', delay: 0.3 },
+                  { title: 'Very Large Companies', price: 'R 12,000', size: 'Turnover above R10m', delay: 0.4 },
+                ].map((card, index) => (
+                  <motion.div
+                    key={index}
+                    className="pricing-card"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: card.delay }}
+                    whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                  >
+                    <h3>{card.title}</h3>
+                    <p className="price">{card.price}</p>
+                    <p className="school-size">{card.size}</p>
+                  </motion.div>
+                ))}
               </div>
-            </div>
+            </motion.div>
 
             <div className="service-features-grid">
               <div className="feature-box">

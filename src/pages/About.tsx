@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { HiAcademicCap, HiClipboardList, HiUserGroup } from 'react-icons/hi';
 import './About.css';
 
@@ -7,17 +8,34 @@ const About = () => {
       {/* Hero Section */}
       <section className="about-hero">
         <div className="container">
-          <h1>About Us</h1>
-          <p className="lead">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            About Us
+          </motion.h1>
+          <motion.p
+            className="lead"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
             Providing excellence in accounting services for public schools since 2015
-          </p>
+          </motion.p>
         </div>
       </section>
 
       {/* Main Content */}
       <section className="about-content">
         <div className="container">
-          <div className="about-intro">
+          <motion.div
+            className="about-intro"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+          >
             <h2>Who We Are</h2>
             <p>
               Sizakala Business Services Provider (Pty) Ltd, trading as Sizakala
@@ -32,10 +50,17 @@ const About = () => {
               including public schools, non-profit organisations, private companies,
               and individuals.
             </p>
-          </div>
+          </motion.div>
 
           <div className="about-details">
-            <div className="detail-card">
+            <motion.div
+              className="detail-card"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+            >
               <div className="detail-icon">
                 <HiAcademicCap />
               </div>
@@ -46,9 +71,16 @@ const About = () => {
                 understand the unique financial management requirements and
                 regulations that govern each sector we work with.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="detail-card">
+            <motion.div
+              className="detail-card"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+            >
               <div className="detail-icon">
                 <HiClipboardList />
               </div>
@@ -59,9 +91,16 @@ const About = () => {
                 NPO financial reporting, company tax compliance, or individual tax
                 returns.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="detail-card">
+            <motion.div
+              className="detail-card"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+            >
               <div className="detail-icon">
                 <HiUserGroup />
               </div>
@@ -72,38 +111,74 @@ const About = () => {
                 schools in meeting the requirements of Section 42 of the South
                 African Schools Act.
               </p>
-            </div>
+            </motion.div>
           </div>
 
-          <div className="credentials-section">
+          <motion.div
+            className="credentials-section"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6 }}
+          >
             <h2>Our Credentials</h2>
             <div className="credentials-grid">
-              <div className="credential-item">
+              <motion.div
+                className="credential-item"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.1 }}
+              >
                 <h4>Professional Body</h4>
                 <p>
                   Chartered Institute for Business Accountants NPC (CIBA)
                 </p>
-              </div>
-              <div className="credential-item">
+              </motion.div>
+              <motion.div
+                className="credential-item"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.2 }}
+              >
                 <h4>Designation</h4>
                 <p>Business Accountants in Practice (BAPS)</p>
-              </div>
-              <div className="credential-item">
+              </motion.div>
+              <motion.div
+                className="credential-item"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.3 }}
+              >
                 <h4>Registration Number</h4>
                 <p>2022/863368/07</p>
-              </div>
-              <div className="credential-item">
+              </motion.div>
+              <motion.div
+                className="credential-item"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.4 }}
+              >
                 <h4>Recognition</h4>
                 <p>
                   CIBA is recognized by SAQA and acknowledged as a Recognised
                   Controlling Body (RCB) under Section 240A(2) of the Tax
                   Administration Act by SARS
                 </p>
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="client-categories-section">
+          <motion.div
+            className="client-categories-section"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.6 }}
+          >
             <h2>Who We Serve</h2>
             <p className="section-intro">
               We provide tailored accounting and financial management services to
@@ -111,7 +186,14 @@ const About = () => {
             </p>
 
             <div className="categories-grid">
-              <div className="category-card">
+              <motion.div
+                className="category-card"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                whileHover={{ y: -8, transition: { duration: 0.3 } }}
+              >
                 <div className="category-icon">
                   <HiAcademicCap />
                 </div>
@@ -129,9 +211,16 @@ const About = () => {
                   <li>Section 21 procurement assistance</li>
                   <li>Asset register management</li>
                 </ul>
-              </div>
+              </motion.div>
 
-              <div className="category-card">
+              <motion.div
+                className="category-card"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                whileHover={{ y: -8, transition: { duration: 0.3 } }}
+              >
                 <div className="category-icon">
                   <HiUserGroup />
                 </div>
@@ -149,9 +238,16 @@ const About = () => {
                   <li>Annual returns and submissions</li>
                   <li>Bookkeeping and financial management</li>
                 </ul>
-              </div>
+              </motion.div>
 
-              <div className="category-card">
+              <motion.div
+                className="category-card"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                whileHover={{ y: -8, transition: { duration: 0.3 } }}
+              >
                 <div className="category-icon">
                   <HiClipboardList />
                 </div>
@@ -168,9 +264,16 @@ const About = () => {
                   <li>Annual financial statements</li>
                   <li>Management accounts and reporting</li>
                 </ul>
-              </div>
+              </motion.div>
 
-              <div className="category-card">
+              <motion.div
+                className="category-card"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                whileHover={{ y: -8, transition: { duration: 0.3 } }}
+              >
                 <div className="category-icon">
                   <HiUserGroup />
                 </div>
@@ -187,11 +290,17 @@ const About = () => {
                   <li>Rental income declarations</li>
                   <li>Tax refund assistance</li>
                 </ul>
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="mission-section">
+          <motion.div
+            className="mission-section"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+          >
             <h2>Our Mission</h2>
             <p>
               To provide excellent accounting and financial management services
@@ -209,7 +318,7 @@ const About = () => {
               their financial obligations and best practices, removing doubt and
               confusion while ensuring compliance with all relevant regulations.
             </p>
-          </div>
+          </motion.div>
         </div>
       </section>
     </div>

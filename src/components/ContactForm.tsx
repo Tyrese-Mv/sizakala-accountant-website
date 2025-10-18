@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import './ContactForm.css';
 
 interface FormData {
@@ -137,19 +138,39 @@ const ContactForm = () => {
       <h2>Send Us a Message</h2>
       <p>Fill out the form below and we'll get back to you within 24 hours.</p>
 
-      {status === 'success' && (
-        <div className="alert alert-success">
-          Thank you! Your message has been sent successfully. We'll be in touch soon.
-        </div>
-      )}
+      <AnimatePresence>
+        {status === 'success' && (
+          <motion.div
+            className="alert alert-success"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+          >
+            Thank you! Your message has been sent successfully. We'll be in touch soon.
+          </motion.div>
+        )}
 
-      {status === 'error' && (
-        <div className="alert alert-error">
-          Oops! Something went wrong. Please try again or contact us directly.
-        </div>
-      )}
+        {status === 'error' && (
+          <motion.div
+            className="alert alert-error"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+          >
+            Oops! Something went wrong. Please try again or contact us directly.
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-      <form onSubmit={handleSubmit} className="contact-form">
+      <motion.form
+        onSubmit={handleSubmit}
+        className="contact-form"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+      >
         <div className="form-row">
           <div className="form-group">
             <label htmlFor="name">Full Name *</label>
@@ -305,14 +326,16 @@ const ContactForm = () => {
           ></textarea>
         </div>
 
-        <button
+        <motion.button
           type="submit"
           className="btn btn-primary btn-submit"
           disabled={status === 'submitting'}
+          whileHover={{ scale: status === 'submitting' ? 1 : 1.02 }}
+          whileTap={{ scale: status === 'submitting' ? 1 : 0.98 }}
         >
           {status === 'submitting' ? 'Sending...' : 'Send Message'}
-        </button>
-      </form>
+        </motion.button>
+      </motion.form>
     </div>
   );
 };
