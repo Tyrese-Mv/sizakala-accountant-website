@@ -13,7 +13,7 @@
   overflow: hidden;
 
   /* Background Image - REPLACE with professional image */
-  background-image: url('src/assets/About-hero-section.jpg');
+  background-image: url('../assets/About-hero-section.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

@@ -14,7 +14,7 @@
   overflow: hidden;
 
   /* Background Image - REPLACE THIS URL with your professional image */
-  background-image: url('src/assets/Home-Hero-section-image.jpg');
+  background-image: url('../assets/Home-Hero-section-image.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
