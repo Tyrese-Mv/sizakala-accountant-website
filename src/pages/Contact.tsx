@@ -1,4 +1,4 @@
-import { HiMail, HiPhone, HiChatAlt2, HiChartBar, HiBookOpen, HiCurrencyDollar } from 'react-icons/hi';
+import { HiMail, HiPhone, HiChatAlt2, HiChartBar, HiBookOpen } from 'react-icons/hi';
 import { useSEO } from '../hooks/useSEO';
 import ContactForm from '../components/ContactForm';
 import './Contact.css';
