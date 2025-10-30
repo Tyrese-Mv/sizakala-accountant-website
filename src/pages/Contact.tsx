@@ -1,8 +1,16 @@
-import { HiMail, HiPhone, HiChatAlt2, HiChartBar, HiBookOpen } from 'react-icons/hi';
+import { HiMail, HiPhone, HiChatAlt2, HiChartBar, HiBookOpen, HiCurrencyDollar } from 'react-icons/hi';
+import { useSEO } from '../hooks/useSEO';
 import ContactForm from '../components/ContactForm';
 import './Contact.css';
 
 const Contact = () => {
+  useSEO({
+    title: 'Contact Sizakala Accountants - Get Your Free Quote | Durban',
+    description: 'Contact Sizakala Accountants for school audit, bookkeeping, and funding assistance services. Located at 526 Durban Club Place. Call 067 034 3472 or email sizakalabsp@gmail.com.',
+    keywords: 'contact Sizakala Accountants, Durban accountants, school audit quote, bookkeeping services contact, 526 Durban Club Place',
+    canonical: 'https://sizakalabsp.com/contact'
+  });
+
   return (
     <div className="contact">
       {/* Hero Section */}
@@ -86,8 +94,26 @@ const Contact = () => {
                 <p>Sizakala Business Services Provider (Pty) Ltd</p>
                 <p>Trading as Sizakala Accountants</p>
                 <p>Registration: 2022/863368/07</p>
-                <p className="designation">Business Accountants in Practice (BAP)</p>
+                <p className="designation">Chartered Business Accountant in Practice (CBAP) SA</p>
               </div>
+            </div>
+          </div>
+
+          {/* Map Section */}
+          <div className="map-section">
+            <h2>Find Us</h2>
+            <p>Visit our office in the heart of Durban's business district</p>
+            <div className="map-container">
+              <iframe
+                src="https://maps.google.com/maps?q=526+Durban+Club+Place,+303+Anton+Lembede+Street,+Durban,+4001,+South+Africa&t=&z=17&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="400"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Sizakala Accountants Office Location - 526 Durban Club Place, 303 Anton Lembede Street, Durban"
+              ></iframe>
             </div>
           </div>
 
@@ -109,8 +135,8 @@ const Contact = () => {
                   <HiChartBar style={{ display: 'inline', marginRight: '0.5rem' }} />
                   Audit Services
                 </h3>
-                <p>Financial statement audits for schools, NPOs, and companies</p>
-                <p className="service-price">From R 2,500</p>
+                <p>Financial statement audits for public schools</p>
+                <p className="service-price">From R 2,000</p>
               </div>
               <div className="service-option">
                 <h3>

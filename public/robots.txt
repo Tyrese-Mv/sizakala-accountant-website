@@ -1,0 +1,14 @@
+# robots.txt for Sizakala Accountants
+# https://sizakalabsp.com/robots.txt
+
+User-agent: *
+Allow: /
+
+# Disallow admin or internal pages (if any in future)
+# Disallow: /admin/
+
+# Sitemap location
+Sitemap: https://sizakalabsp.com/sitemap.xml
+
+# Crawl-delay for all bots
+Crawl-delay: 1

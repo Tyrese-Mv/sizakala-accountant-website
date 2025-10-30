@@ -1,8 +1,16 @@
 import { motion } from 'framer-motion';
 import { HiAcademicCap, HiClipboardList, HiUserGroup } from 'react-icons/hi';
+import { useSEO } from '../hooks/useSEO';
 import './About.css';
 
 const About = () => {
+  useSEO({
+    title: 'About Sizakala Accountants - CBAP SA Certified School Accountants',
+    description: 'Learn about Sizakala Accountants, CBAP SA registered professionals with CIBA and SAIT certification. Specializing in public school audits, bookkeeping, and funding assistance since 2015.',
+    keywords: 'about Sizakala Accountants, CBAP accountant, CIBA certification, SAIT certified, school accounting specialists, Durban accountants',
+    canonical: 'https://sizakalabsp.com/about'
+  });
+
   return (
     <div className="about">
       {/* Hero Section */}

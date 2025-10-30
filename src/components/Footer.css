@@ -74,6 +74,48 @@
   color: #7cbd1e;
 }
 
+.footer-certifications {
+  text-align: center;
+  margin: 3rem 0 2rem;
+  padding: 2rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-certifications h4 {
+  color: #7cbd1e;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.certification-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.cert-logo {
+  background: white;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cert-logo:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(124, 189, 30, 0.3);
+}
+
+.cert-logo img {
+  height: 60px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 1.5rem;
@@ -98,5 +140,13 @@
 
   .footer {
     padding: 2rem 0 1rem;
+  }
+
+  .certification-logos {
+    gap: 2rem;
+  }
+
+  .cert-logo img {
+    height: 50px;
   }
 }

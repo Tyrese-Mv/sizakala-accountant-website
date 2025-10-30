@@ -35,6 +35,18 @@
   font-weight: 500;
 }
 
+.company-logo {
+  height: 70px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.company-logo:hover {
+  transform: scale(1.05);
+}
+
 .nav-menu {
   display: flex;
   list-style: none;
@@ -116,5 +128,9 @@
   .nav-menu li a {
     display: block;
     padding: 1rem;
+  }
+
+  .company-logo {
+    height: 55px;
   }
 }

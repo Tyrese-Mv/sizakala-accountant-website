@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import './Footer.css';
+import cibaLogo from '../assets/ciba-logo.webp';
+import saitLogo from '../assets/sait-logo.png';
 
 const Footer = () => {
   return (
@@ -10,7 +12,7 @@ const Footer = () => {
             <h3>Sizakala Business Services Provider</h3>
             <p>Trading as Sizakala Accountants</p>
             <p>Reg: 2022/863368/07</p>
-            <p className="credentials">Business Accountants in Practice (BAP)</p>
+            <p className="credentials">Chartered Business Accountant in Practice (CBAP) SA</p>
           </div>
 
           <div className="footer-col">
@@ -57,6 +59,18 @@ const Footer = () => {
                 <Link to="/contact">Contact</Link>
               </li>
             </ul>
+          </div>
+        </div>
+
+        <div className="footer-certifications">
+          <h4>Certified & Registered With</h4>
+          <div className="certification-logos">
+            <div className="cert-logo">
+              <img src={cibaLogo} alt="CIBA - Chartered Institute for Business Accountants" />
+            </div>
+            <div className="cert-logo">
+              <img src={saitLogo} alt="SAIT - South African Institute of Tax Practitioners" />
+            </div>
           </div>
         </div>
 

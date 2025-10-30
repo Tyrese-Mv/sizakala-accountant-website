@@ -1,9 +1,17 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { HiChartBar, HiBookOpen } from 'react-icons/hi';
+import { HiChartBar, HiBookOpen, HiCurrencyDollar } from 'react-icons/hi';
+import { useSEO } from '../hooks/useSEO';
 import './Services.css';
 
 const Services = () => {
+  useSEO({
+    title: 'Our Services - School Audit, Bookkeeping & Funding Assistance | Sizakala',
+    description: 'Professional accounting services for public schools, NPOs, and companies. School audits from R2,000, bookkeeping from R150/month, Section 18A registration and funding assistance. CBAP SA certified.',
+    keywords: 'school audit pricing, bookkeeping services, funding assistance, Section 18A registration, NPO financial statements, school accounting services, Durban, South Africa',
+    canonical: 'https://sizakalabsp.com/services'
+  });
+
   return (
     <div className="services">
       {/* Hero Section */}
@@ -41,7 +49,7 @@ const Services = () => {
               <HiChartBar />
             </div>
             <h2>Audit Services</h2>
-            <p className="service-price">From R 2,500</p>
+            <p className="service-price">From R 2,000</p>
           </motion.div>
 
           <div className="service-details">
@@ -53,11 +61,10 @@ const Services = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <p>
-                We offer comprehensive audit services to public schools, non-profit
-                organisations, and private companies with affordable tiered pricing
-                tailored to your organisation's size and complexity. Our audits
-                ensure compliance with relevant regulations and provide stakeholders
-                with confidence in your financial statements.
+                Need affordable audit services and tired of waiting long time for your
+                financial statements, come to us we offer our services at reasonable
+                rates to accommodate for the financial hardships at public schools
+                and receive your financial statements within 5 days.
               </p>
             </motion.div>
 
@@ -71,7 +78,7 @@ const Services = () => {
               <h3 className="category-title">Public Schools</h3>
               <p className="category-intro">
                 Audits conducted in accordance with Section 43 of the South African
-                Schools Act No. 84 of 1996, including free training for school staff.
+                Schools Act No. 84 of 1996.
               </p>
               <div className="pricing-grid">
                 <motion.div
@@ -83,7 +90,7 @@ const Services = () => {
                   whileHover={{ y: -5, transition: { duration: 0.2 } }}
                 >
                   <h3>Small Schools</h3>
-                  <p className="price">R 2,500</p>
+                  <p className="price">R 2,000</p>
                   <p className="school-size">Less than 200 learners</p>
                 </motion.div>
 
@@ -96,7 +103,7 @@ const Services = () => {
                   whileHover={{ y: -5, transition: { duration: 0.2 } }}
                 >
                   <h3>Medium Schools</h3>
-                  <p className="price">R 3,500</p>
+                  <p className="price">R 2,500</p>
                   <p className="school-size">200-399 learners</p>
                 </motion.div>
 
@@ -109,7 +116,7 @@ const Services = () => {
                   whileHover={{ y: -5, transition: { duration: 0.2 } }}
                 >
                   <h3>Large Schools</h3>
-                  <p className="price">R 4,500</p>
+                  <p className="price">R 3,000</p>
                   <p className="school-size">400-599 learners</p>
                 </motion.div>
 
@@ -122,81 +129,9 @@ const Services = () => {
                   whileHover={{ y: -5, transition: { duration: 0.2 } }}
                 >
                   <h3>Extra Large Schools</h3>
-                  <p className="price">R 5,500</p>
+                  <p className="price">R 4,000</p>
                   <p className="school-size">600+ learners</p>
                 </motion.div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              className="audit-categories"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.6 }}
-            >
-              <h3 className="category-title">Non-Profit organisations (NPOs)</h3>
-              <p className="category-intro">
-                Independent examinations and audits for NPO compliance, donor
-                reporting, and regulatory requirements.
-              </p>
-              <div className="pricing-grid">
-                {[
-                  { title: 'Small NPOs', price: 'R 2,500', size: 'Revenue less than R500k', delay: 0.1 },
-                  { title: 'Medium NPOs', price: 'R 4,000', size: 'Revenue R500k - R2m', delay: 0.2 },
-                  { title: 'Large NPOs', price: 'R 6,000', size: 'Revenue R2m - R5m', delay: 0.3 },
-                  { title: 'Very Large NPOs', price: 'R 8,500', size: 'Revenue above R5m', delay: 0.4 },
-                ].map((card, index) => (
-                  <motion.div
-                    key={index}
-                    className="pricing-card"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: card.delay }}
-                    whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                  >
-                    <h3>{card.title}</h3>
-                    <p className="price">{card.price}</p>
-                    <p className="school-size">{card.size}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-
-            <motion.div
-              className="audit-categories"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.6 }}
-            >
-              <h3 className="category-title">Private Companies</h3>
-              <p className="category-intro">
-                Financial statement audits and independent reviews for small to
-                medium enterprises ensuring compliance and accuracy.
-              </p>
-              <div className="pricing-grid">
-                {[
-                  { title: 'Small Companies', price: 'R 3,500', size: 'Turnover less than R1m', delay: 0.1 },
-                  { title: 'Medium Companies', price: 'R 5,500', size: 'Turnover R1m - R5m', delay: 0.2 },
-                  { title: 'Large Companies', price: 'R 8,000', size: 'Turnover R5m - R10m', delay: 0.3 },
-                  { title: 'Very Large Companies', price: 'R 12,000', size: 'Turnover above R10m', delay: 0.4 },
-                ].map((card, index) => (
-                  <motion.div
-                    key={index}
-                    className="pricing-card"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: card.delay }}
-                    whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                  >
-                    <h3>{card.title}</h3>
-                    <p className="price">{card.price}</p>
-                    <p className="school-size">{card.size}</p>
-                  </motion.div>
-                ))}
               </div>
             </motion.div>
 
@@ -207,33 +142,9 @@ const Services = () => {
                   <li>Complete financial statement audit</li>
                   <li>Audit completed within 5 days of collecting records</li>
                   <li>We collect accounting records from your school</li>
-                  <li>Free training on accurate record-keeping</li>
                   <li>All audit templates and checklists provided</li>
                 </ul>
               </div>
-
-              <div className="feature-box">
-                <h3>Free Training Included</h3>
-                <ul>
-                  <li>Budgeting process</li>
-                  {/* <li>Recording of receipts and payments</li> */}
-                  <li>Travel and reimbursement costs</li>
-                  <li>Petty cash management</li>
-                  <li>Procurement process (Section 21 schools)</li>
-                  <li>Asset register and inventory listing</li>
-                  <li>Stores records</li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="training-info">
-              <h3>Training Details</h3>
-              <p>
-                Training is provided to the finance officer and other staff members
-                who are involved in finances of the school. Training sessions are 1-2
-                hours and conducted at your school. The session date will be agreed
-                upon with your team.
-              </p>
             </div>
           </div>
         </div>
@@ -259,6 +170,7 @@ const Services = () => {
               </p>
             </div>
 
+            <h3 className="category-title">Public Schools - Monthly Bookkeeping</h3>
             <div className="pricing-grid">
               <div className="pricing-card">
                 <h3>Small Schools</h3>
@@ -282,6 +194,52 @@ const Services = () => {
                 <h3>Extra Large Schools</h3>
                 <p className="price">R 500<span>/month</span></p>
                 <p className="school-size">600+ learners</p>
+              </div>
+            </div>
+
+            <h3 className="category-title">Non-Profit Organizations - Preparation of Annual Financial Statements</h3>
+            <div className="pricing-grid">
+              <div className="pricing-card">
+                <h3>Small NPOs</h3>
+                <p className="price">R 2,500</p>
+              </div>
+
+              <div className="pricing-card">
+                <h3>Medium NPOs</h3>
+                <p className="price">R 3,000</p>
+              </div>
+
+              <div className="pricing-card">
+                <h3>Large NPOs</h3>
+                <p className="price">R 5,000</p>
+              </div>
+
+              <div className="pricing-card">
+                <h3>Very Large NPOs</h3>
+                <p className="price">R 7,000</p>
+              </div>
+            </div>
+
+            <h3 className="category-title">Private Companies - Preparation of Annual Financial Statements</h3>
+            <div className="pricing-grid">
+              <div className="pricing-card">
+                <h3>Small Companies</h3>
+                <p className="price">R 2,500</p>
+              </div>
+
+              <div className="pricing-card">
+                <h3>Medium Companies</h3>
+                <p className="price">R 3,000</p>
+              </div>
+
+              <div className="pricing-card">
+                <h3>Large Companies</h3>
+                <p className="price">R 5,000</p>
+              </div>
+
+              <div className="pricing-card">
+                <h3>Very Large Companies</h3>
+                <p className="price">R 7,000</p>
               </div>
             </div>
 
@@ -316,6 +274,85 @@ const Services = () => {
                 <li>Meet all submission deadlines consistently</li>
                 <li>Focus on running your school while we handle the books</li>
               </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Funding Assistance Services */}
+      <section className="service-section" id="funding">
+        <div className="container">
+          <div className="service-header">
+            <div className="service-icon-large">
+              <HiCurrencyDollar />
+            </div>
+            <h2>Funding Assistance for Public Schools</h2>
+            <p className="service-price">R 950 registration + 8% success fee</p>
+          </div>
+
+          <div className="service-details">
+            <div className="service-description">
+              <p>
+                Public schools in KwaZulu-Natal are currently facing financial difficulties
+                and are struggling to keep up with the financial needs of the school. The
+                school allocation assists the running of the schools but for most schools it
+                is still not enough to improve the learning conditions.
+              </p>
+              <p>
+                We assist public schools in obtaining funding from more than 30 organizations
+                that provide donations to schools. Our NPO specialist license from CIBA enables
+                us to guide you through the entire funding application process.
+              </p>
+            </div>
+
+            <h3 className="category-title">Two-Step Process</h3>
+
+            <div className="service-features-grid">
+              <div className="feature-box">
+                <h3>Step 1: Section 18A Certificate Registration</h3>
+                <p><strong>What it is:</strong> SARS certificate that allows donors to claim tax deductions when making donations to your school.</p>
+                <p><strong>Requirements:</strong></p>
+                <ul>
+                  <li>EMIS certificate</li>
+                  <li>Constitution</li>
+                  <li>Select 3 office bearers (can be changed anytime)</li>
+                  <li>Office bearer's particulars</li>
+                </ul>
+                <p><strong>Cost:</strong> R 950 administration fee (payable within 30 days)</p>
+                <p><strong>Turnaround time:</strong> 2-3 months</p>
+              </div>
+
+              <div className="feature-box">
+                <h3>Step 2: Funding Applications</h3>
+                <p><strong>What we do:</strong> Once you obtain the Section 18A certificate, we make funding/donation applications to more than 30 organizations who provide donations to public schools.</p>
+                <p><strong>Requirements:</strong></p>
+                <ul>
+                  <li>Budgeted items and amounts required</li>
+                </ul>
+                <p><strong>Finalization period:</strong> Approximately 1-4 months</p>
+                <p><strong>Our fee:</strong> 8% fundraising fee once the school receives the funding upon finalization</p>
+              </div>
+            </div>
+
+            <div className="benefits-info">
+              <h3>Benefits</h3>
+              <ul>
+                <li>Access to 30+ donor organizations</li>
+                <li>Assist schools to be financially stable</li>
+                <li>Help schools have excellent learning conditions</li>
+                <li>Meet financial needs of the school</li>
+                <li>You only pay when you receive funding</li>
+                <li>NPO specialist licensed accountants guiding the process</li>
+              </ul>
+            </div>
+
+            <div className="training-info">
+              <h3>Total Timeline</h3>
+              <p>
+                From start to receiving funding: approximately 3-6 months. This includes
+                the Section 18A registration (2-3 months) and the funding application
+                process (1-4 months).
+              </p>
             </div>
           </div>
         </div>

@@ -1,9 +1,17 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { HiChartBar, HiBookOpen, HiCheckCircle } from 'react-icons/hi';
+import { HiChartBar, HiBookOpen, HiCheckCircle, HiCurrencyDollar } from 'react-icons/hi';
+import { useSEO } from '../hooks/useSEO';
 import './Home.css';
 
 const Home = () => {
+  useSEO({
+    title: 'Sizakala Accountants - School Audit, Bookkeeping & Funding Assistance | Durban',
+    description: 'CBAP SA registered accountants specializing in public school audits (from R2,000), bookkeeping (R150/month), and funding assistance. Certified by CIBA & SAIT. Based in Durban, serving all SA schools.',
+    keywords: 'school audit Durban, school bookkeeping, school funding assistance, Section 18A registration, CBAP accountant, CIBA registered, SAIT practitioner, public school accounting',
+    canonical: 'https://sizakalabsp.com/'
+  });
+
   return (
     <div className="home">
       {/* Hero Section */}
@@ -22,7 +30,7 @@ const Home = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              Registered with CIBA since 2015
+              Established in 2015
             </motion.div>
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -37,8 +45,8 @@ const Home = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              Specialized financial solutions for schools, non-profit organisations,
-              and private companies across South Africa
+              We specialize on audit services, Bookkeeping services and funding application for
+              public schools
             </motion.p>
             <motion.div
               className="hero-features"
@@ -117,15 +125,14 @@ const Home = () => {
               </div>
               <h3>Audit Services</h3>
               <p>
-                Comprehensive financial statement audits for schools, NPOs, and
-                private companies with tiered pricing based on your organisation's
-                size and complexity.
+                Affordable audit services for public schools with fast turnaround.
+                Receive your financial statements within 5 days at reasonable rates.
               </p>
               <ul className="service-features">
-                <li>From R 2,500 (tiered pricing)</li>
-                <li>Schools, NPOs & Companies</li>
-                <li>Compliance & regulatory audits</li>
-                <li>Professional & reliable service</li>
+                <li>From R 2,000 (tiered pricing)</li>
+                <li>Public schools only</li>
+                <li>5 working day turnaround</li>
+                <li>Section 43 compliance</li>
               </ul>
               <Link to="/services#audit" className="btn btn-outline">
                 Learn More
@@ -149,12 +156,39 @@ const Home = () => {
                 submission deadlines and maintain accurate financial records.
               </p>
               <ul className="service-features">
-                <li>From R 150/month</li>
-                <li>Tiered pricing by school size</li>
+                <li>From R 150/month (Schools)</li>
+                <li>Annual financial statements (NPOs/Companies)</li>
                 <li>Cash receipts & payments journals</li>
                 <li>Bank reconciliations</li>
               </ul>
               <Link to="/services#bookkeeping" className="btn btn-outline">
+                Learn More
+              </Link>
+            </motion.div>
+
+            <motion.div
+              className="service-card"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+            >
+              <div className="service-icon">
+                <HiCurrencyDollar />
+              </div>
+              <h3>Funding Assistance</h3>
+              <p>
+                Help your school obtain funding from 30+ donor organizations.
+                Section 18A registration and funding application services.
+              </p>
+              <ul className="service-features">
+                <li>R 950 registration fee</li>
+                <li>8% fee on successful funding</li>
+                <li>Access to 30+ donors</li>
+                <li>Only pay when you receive funding</li>
+              </ul>
+              <Link to="/services#funding" className="btn btn-outline">
                 Learn More
               </Link>
             </motion.div>
@@ -187,8 +221,10 @@ const Home = () => {
               </div>
               <h3>Registered & Qualified</h3>
               <p>
-                Registered with the Chartered Institute for Business Accountants
-                (CIBA) with Business Accountants in Practice (BAP) designation
+                Registered with the Chartered Institute of Business Accountant in
+                Practice (CIBA) with the Chartered Business Accountant in Practice (CBAP) SA Designation
+                and Registered with the South African Institute of Tax Practitioners (SAIT) as an Tax
+                Practitioner.
               </p>
             </motion.div>
             <motion.div
@@ -203,8 +239,8 @@ const Home = () => {
               </div>
               <h3>Specialized Expertise</h3>
               <p>
-                We focus exclusively on public schools, understanding your unique
-                financial management requirements
+                We focus Primarily on public schools as we specialize on the unique
+                financial management requirements.
               </p>
             </motion.div>
             <motion.div
@@ -221,22 +257,6 @@ const Home = () => {
               <p>
                 Reasonable fees structured to fit your school's budget, with tiered
                 pricing based on enrollment
-              </p>
-            </motion.div>
-            <motion.div
-              className="benefit-item"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-            >
-              <div className="benefit-icon">
-                <HiCheckCircle />
-              </div>
-              <h3>Free Training</h3>
-              <p>
-                Complimentary training on financial compliance and record-keeping
-                with our audit services
               </p>
             </motion.div>
           </div>

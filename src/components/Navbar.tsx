@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import './Navbar.css';
+import companyLogo from '../assets/logo-company.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,8 +23,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="nav-container">
         <Link to="/" className="nav-brand" onClick={closeMenu}>
-          <h2>SIZAKALA BSP</h2>
-          <p className="tagline">Accountants</p>
+          <img src={companyLogo} alt="Sizakala Accountants" className="company-logo" />
         </Link>
 
         <ul className={`nav-menu ${isOpen ? 'active' : ''}`}>
