@@ -49,7 +49,7 @@ const About = () => {
               Sizakala Business Services Provider (Pty) Ltd, trading as Sizakala
               Accountants, is an accounting firm established in 2015. We are
               registered Accountants with the Chartered Institute for Business
-              Accountants (CIBA) with the designation Business Accountants in
+              Accountants (CIBA) with the designation Chartered Business Accountants in
               Practice (BAPS).
             </p>
             <p>
@@ -151,7 +151,7 @@ const About = () => {
                 transition={{ duration: 0.4, delay: 0.2 }}
               >
                 <h4>Designation</h4>
-                <p>Business Accountants in Practice (BAPS)</p>
+                <p>Chartered Business Accountants in Practice (BAPS)</p>
               </motion.div>
               <motion.div
                 className="credential-item"

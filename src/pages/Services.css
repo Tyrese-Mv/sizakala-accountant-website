@@ -76,6 +76,29 @@
   margin-bottom: 3rem;
 }
 
+.service-image-container {
+  max-width: 900px;
+  margin: 0 auto 4rem;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(30, 74, 122, 0.15);
+  border: 1px solid rgba(30, 74, 122, 0.1);
+  transition: all 0.4s ease;
+}
+
+.service-image-container:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(30, 74, 122, 0.25);
+}
+
+.service-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  max-height: 500px;
+}
+
 .service-icon-large {
   font-size: 5rem;
   margin-bottom: 1rem;
@@ -383,6 +406,15 @@
     width: 100%;
     max-width: 300px;
   }
+
+  .service-image-container {
+    margin-bottom: 3rem;
+    border-radius: 12px;
+  }
+
+  .service-image {
+    max-height: 350px;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -392,5 +424,18 @@
 
   .services-hero .lead {
     font-size: 1rem;
+  }
+
+  .service-image-container {
+    margin-bottom: 2.5rem;
+    border-radius: 10px;
+  }
+
+  .service-image {
+    max-height: 280px;
+  }
+
+  .service-image-container:hover {
+    transform: translateY(-4px);
   }
 }

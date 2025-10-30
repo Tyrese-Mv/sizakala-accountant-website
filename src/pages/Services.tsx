@@ -2,6 +2,9 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { HiChartBar, HiBookOpen, HiCurrencyDollar } from 'react-icons/hi';
 import { useSEO } from '../hooks/useSEO';
+import auditImage from '../assets/auditing - Picture.jpg';
+import bookkeepingImage from '../assets/Bookkeeping - Picture.jpeg.jpg';
+import fundingImage from '../assets/School Funding Picture.jpg';
 import './Services.css';
 
 const Services = () => {
@@ -50,6 +53,20 @@ const Services = () => {
             </div>
             <h2>Audit Services</h2>
             <p className="service-price">From R 2,000</p>
+          </motion.div>
+
+          <motion.div
+            className="service-image-container"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <img
+              src={auditImage}
+              alt="Professional audit services for public schools - financial statement review and compliance"
+              className="service-image"
+            />
           </motion.div>
 
           <div className="service-details">
@@ -160,6 +177,20 @@ const Services = () => {
             <h2>Bookkeeping Services</h2>
             <p className="service-price">From R 150/month</p>
           </div>
+
+          <motion.div
+            className="service-image-container"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <img
+              src={bookkeepingImage}
+              alt="Bookkeeping services for schools, NPOs, and companies - monthly financial record management"
+              className="service-image"
+            />
+          </motion.div>
 
           <div className="service-details">
             <div className="service-description">
@@ -289,6 +320,20 @@ const Services = () => {
             <h2>Funding Assistance for Public Schools</h2>
             <p className="service-price">R 950 registration + 8% success fee</p>
           </div>
+
+          <motion.div
+            className="service-image-container"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <img
+              src={fundingImage}
+              alt="School funding assistance - Section 18A registration and grant applications for public schools"
+              className="service-image"
+            />
+          </motion.div>
 
           <div className="service-details">
             <div className="service-description">

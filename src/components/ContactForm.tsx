@@ -38,26 +38,107 @@ const ContactForm = () => {
     e.preventDefault();
     setStatus('submitting');
 
-    // Simulate form submission - in production, replace with actual API call
-    setTimeout(() => {
-      console.log('Form submitted:', formData);
-      setStatus('success');
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        organisationType: '',
-        organisationName: '',
-        enrollment: '',
-        revenue: '',
-        service: '',
-        message: '',
+    try {
+      // FormSubmit endpoint - replace with your actual email
+      const formSubmitUrl = 'https://formsubmit.co/sizakalabsp@gmail.com';
+
+      // Prepare form data with all fields
+      const submitData = new FormData();
+      submitData.append('name', formData.name);
+      submitData.append('email', formData.email);
+      submitData.append('phone', formData.phone);
+      submitData.append('organisationType', formData.organisationType);
+      submitData.append('organisationName', formData.organisationName);
+      submitData.append('enrollment', formData.enrollment);
+      submitData.append('revenue', formData.revenue);
+      submitData.append('service', formData.service);
+      submitData.append('message', formData.message);
+      submitData.append('estimatedPrice', estimatedPrice || 'Not calculated');
+
+      // FormSubmit configuration
+      submitData.append('_subject', `New Enquiry from ${formData.name} - ${formData.organisationType}`);
+      submitData.append('_captcha', 'false'); // Set to 'true' if you want captcha
+      submitData.append('_template', 'table'); // Nice table format in email
+
+      const response = await fetch(formSubmitUrl, {
+        method: 'POST',
+        body: submitData,
+        headers: {
+          'Accept': 'application/json'
+        }
       });
 
-      // Reset status after 5 seconds
+      if (response.ok) {
+        setStatus('success');
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          organisationType: '',
+          organisationName: '',
+          enrollment: '',
+          revenue: '',
+          service: '',
+          message: '',
+        });
+
+        // Reset status after 5 seconds
+        setTimeout(() => setStatus('idle'), 5000);
+      } else {
+        setStatus('error');
+        setTimeout(() => setStatus('idle'), 5000);
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setStatus('error');
       setTimeout(() => setStatus('idle'), 5000);
-    }, 1500);
+    }
+  };
+
+  // Get available services based on organisation type
+  const getAvailableServices = () => {
+    const orgType = formData.organisationType;
+
+    if (orgType === 'school') {
+      return [
+        { value: 'audit', label: 'Audit Services (From R 2,000)', available: true },
+        { value: 'bookkeeping', label: 'Bookkeeping Services (From R 150/month)', available: true },
+        { value: 'funding', label: 'Funding Assistance (R 950 + 8% success fee)', available: true },
+        { value: 'audit-bookkeeping', label: 'Audit + Bookkeeping', available: true },
+        { value: 'audit-funding', label: 'Audit + Funding Assistance', available: true },
+        { value: 'all-services', label: 'All Services', available: true },
+        { value: 'consultation', label: 'Just Consultation', available: true },
+      ];
+    }
+
+    if (orgType === 'npo') {
+      return [
+        { value: 'bookkeeping', label: 'Annual Financial Statements (From R 2,500)', available: true },
+        { value: 'consultation', label: 'Just Consultation', available: true },
+      ];
+    }
+
+    if (orgType === 'company') {
+      return [
+        { value: 'bookkeeping', label: 'Annual Financial Statements (From R 2,500)', available: true },
+        { value: 'consultation', label: 'Just Consultation', available: true },
+      ];
+    }
+
+    if (orgType === 'individual') {
+      return [
+        { value: 'consultation', label: 'Consultation', available: true },
+      ];
+    }
+
+    // Default - show all with availability warnings
+    return [
+      { value: 'audit', label: 'Audit Services (Schools Only)', available: false },
+      { value: 'bookkeeping', label: 'Bookkeeping / Financial Statements', available: true },
+      { value: 'funding', label: 'Funding Assistance (Schools Only)', available: false },
+      { value: 'consultation', label: 'Consultation', available: true },
+    ];
   };
 
   const getEstimatedPrice = () => {
@@ -66,66 +147,123 @@ const ContactForm = () => {
     // Helper function to calculate audit price based on organisation type
     const getAuditPrice = () => {
       if (orgType === 'school') {
-        if (!formData.enrollment) return null;
+        if (!formData.enrollment) return 'incomplete';
         const enrollment = parseInt(formData.enrollment);
-        if (enrollment < 200) return 'R 2,500';
-        if (enrollment < 400) return 'R 3,500';
-        if (enrollment < 600) return 'R 4,500';
-        return 'R 5,500';
+        if (enrollment < 200) return 'R 2,000';
+        if (enrollment < 400) return 'R 2,500';
+        if (enrollment < 600) return 'R 3,000';
+        return 'R 4,000';
       }
 
-      if (orgType === 'npo') {
-        if (!formData.revenue) return null;
-        const revenue = parseInt(formData.revenue);
-        if (revenue < 500000) return 'R 2,500';
-        if (revenue < 2000000) return 'R 4,000';
-        if (revenue < 5000000) return 'R 6,000';
-        return 'R 8,500';
-      }
-
-      if (orgType === 'company') {
-        if (!formData.revenue) return null;
-        const turnover = parseInt(formData.revenue);
-        if (turnover < 1000000) return 'R 3,500';
-        if (turnover < 5000000) return 'R 5,500';
-        if (turnover < 10000000) return 'R 8,000';
-        return 'R 12,000';
-      }
-
-      return null;
+      // NPO and Company audit services have been removed per client requirements
+      // Only schools are eligible for audit services now
+      return 'unavailable';
     };
 
-    // Helper function to calculate bookkeeping price (schools only for now)
+    // Helper function to calculate bookkeeping price
     const getBookkeepingPrice = () => {
       if (orgType === 'school') {
-        if (!formData.enrollment) return null;
+        if (!formData.enrollment) return 'incomplete';
         const enrollment = parseInt(formData.enrollment);
         if (enrollment < 200) return 'R 150/month';
         if (enrollment < 400) return 'R 300/month';
         if (enrollment < 600) return 'R 400/month';
-        return 'R 500/month';
+        return 'R 700/month';
       }
+
+      if (orgType === 'npo') {
+        if (!formData.revenue) return 'incomplete';
+        const revenue = parseInt(formData.revenue);
+        if (revenue < 500000) return 'R 2,500 (Annual Financial Statements)';
+        if (revenue < 2000000) return 'R 3,000 (Annual Financial Statements)';
+        if (revenue < 5000000) return 'R 5,000 (Annual Financial Statements)';
+        return 'R 7,000 (Annual Financial Statements)';
+      }
+
+      if (orgType === 'company') {
+        if (!formData.revenue) return 'incomplete';
+        const turnover = parseInt(formData.revenue);
+        if (turnover < 1000000) return 'R 2,500 (Annual Financial Statements)';
+        if (turnover < 5000000) return 'R 3,000 (Annual Financial Statements)';
+        if (turnover < 10000000) return 'R 5,000 (Annual Financial Statements)';
+        return 'R 7,000 (Annual Financial Statements)';
+      }
+
+      return 'unavailable';
+    };
+
+    // Funding assistance price
+    const getFundingPrice = () => {
+      if (orgType === 'school') {
+        return 'R 950 registration + 8% of funding secured';
+      }
+      return 'unavailable';
+    };
+
+    // Helper to format price results with user-friendly messages
+    const formatPriceResult = (prices: { service: string; price: string }[]) => {
+      const incomplete = prices.filter(p => p.price === 'incomplete');
+      const unavailable = prices.filter(p => p.price === 'unavailable');
+      const valid = prices.filter(p => p.price !== 'incomplete' && p.price !== 'unavailable');
+
+      if (incomplete.length > 0) {
+        const fields = orgType === 'school' ? 'enrollment' : 'annual revenue';
+        return `Enter ${fields} above to see estimated price`;
+      }
+
+      if (unavailable.length > 0 && valid.length === 0) {
+        return `This service is not available for ${formData.organisationType === 'npo' ? 'NPOs' : formData.organisationType === 'company' ? 'companies' : 'this organisation type'}`;
+      }
+
+      if (valid.length > 0) {
+        return valid.map(p => `${p.service}: ${p.price}`).join(' + ');
+      }
+
       return null;
     };
 
     if (formData.service === 'audit') {
-      return getAuditPrice();
+      const price = getAuditPrice();
+      return formatPriceResult([{ service: 'Audit', price }]);
     }
 
     if (formData.service === 'bookkeeping') {
-      return getBookkeepingPrice();
+      const price = getBookkeepingPrice();
+      return formatPriceResult([{ service: 'Bookkeeping', price }]);
     }
 
-    if (formData.service === 'both') {
+    if (formData.service === 'funding') {
+      const price = getFundingPrice();
+      return formatPriceResult([{ service: 'Funding', price }]);
+    }
+
+    if (formData.service === 'audit-bookkeeping') {
       const auditPrice = getAuditPrice();
       const bookkeepingPrice = getBookkeepingPrice();
+      return formatPriceResult([
+        { service: 'Audit', price: auditPrice },
+        { service: 'Bookkeeping', price: bookkeepingPrice }
+      ]);
+    }
 
-      if (auditPrice && bookkeepingPrice) {
-        return `Audit: ${auditPrice} + Bookkeeping: ${bookkeepingPrice}`;
-      }
+    if (formData.service === 'audit-funding') {
+      const auditPrice = getAuditPrice();
+      const fundingPrice = getFundingPrice();
+      return formatPriceResult([
+        { service: 'Audit', price: auditPrice },
+        { service: 'Funding', price: fundingPrice }
+      ]);
+    }
 
-      if (auditPrice) return `Audit: ${auditPrice}`;
-      if (bookkeepingPrice) return `Bookkeeping: ${bookkeepingPrice}`;
+    if (formData.service === 'all-services') {
+      const auditPrice = getAuditPrice();
+      const bookkeepingPrice = getBookkeepingPrice();
+      const fundingPrice = getFundingPrice();
+      return formatPriceResult([
+        { service: 'Audit', price: auditPrice },
+        { service: 'Bookkeeping', price: bookkeepingPrice },
+        { service: 'Funding', price: fundingPrice }
+      ]);
     }
 
     return null;
@@ -214,7 +352,7 @@ const ContactForm = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="organisationType">organisation Type *</label>
+            <label htmlFor="organisationType">Organisation Type *</label>
             <select
               id="organisationType"
               name="organisationType"
@@ -224,7 +362,7 @@ const ContactForm = () => {
             >
               <option value="">-- Select Type --</option>
               <option value="school">Public School</option>
-              <option value="npo">Non-Profit organisation</option>
+              <option value="npo">Non-Profit Organisation</option>
               <option value="company">Private Company</option>
               <option value="individual">Individual</option>
             </select>
@@ -238,7 +376,7 @@ const ContactForm = () => {
                formData.organisationType === 'npo' ? 'NPO Name' :
                formData.organisationType === 'company' ? 'Company Name' :
                formData.organisationType === 'individual' ? 'Full Name' :
-               'organisation/Name'} *
+               'Organisation/Name'} *
             </label>
             <input
               type="text"
@@ -258,7 +396,11 @@ const ContactForm = () => {
 
           {formData.organisationType === 'school' && (
             <div className="form-group">
-              <label htmlFor="enrollment">School Enrollment (Number of Learners)</label>
+              <label htmlFor="enrollment">
+                School Enrolment (Number of Learners)
+                {(formData.service === 'audit' || formData.service === 'bookkeeping' ||
+                  formData.service === 'audit-bookkeeping' || formData.service === 'all-services') && ' *'}
+              </label>
               <input
                 type="number"
                 id="enrollment"
@@ -267,7 +409,19 @@ const ContactForm = () => {
                 onChange={handleChange}
                 placeholder="e.g., 350"
                 min="1"
+                required={
+                  formData.service === 'audit' ||
+                  formData.service === 'bookkeeping' ||
+                  formData.service === 'audit-bookkeeping' ||
+                  formData.service === 'all-services'
+                }
               />
+              {(formData.service === 'audit' || formData.service === 'bookkeeping' ||
+                formData.service === 'audit-bookkeeping' || formData.service === 'all-services') && (
+                <small style={{ display: 'block', marginTop: '0.25rem', color: '#7cbd1e' }}>
+                  Required for accurate pricing estimate
+                </small>
+              )}
             </div>
           )}
 
@@ -275,6 +429,7 @@ const ContactForm = () => {
             <div className="form-group">
               <label htmlFor="revenue">
                 Annual {formData.organisationType === 'npo' ? 'Revenue' : 'Turnover'} (R)
+                {formData.service === 'bookkeeping' && ' *'}
               </label>
               <input
                 type="number"
@@ -286,7 +441,13 @@ const ContactForm = () => {
                   formData.organisationType === 'npo' ? 'e.g., 750000' : 'e.g., 2500000'
                 }
                 min="1"
+                required={formData.service === 'bookkeeping'}
               />
+              {formData.service === 'bookkeeping' && (
+                <small style={{ display: 'block', marginTop: '0.25rem', color: '#7cbd1e' }}>
+                  Required for accurate pricing estimate
+                </small>
+              )}
             </div>
           )}
         </div>
@@ -301,11 +462,20 @@ const ContactForm = () => {
             required
           >
             <option value="">-- Select a Service --</option>
-            <option value="audit">Audit Services (From R 2,500)</option>
-            <option value="bookkeeping">Bookkeeping Services (From R 150/month - Schools)</option>
-            <option value="both">Both Services</option>
-            <option value="consultation">Just Consultation</option>
+            {getAvailableServices().map((service) => (
+              <option key={service.value} value={service.value}>
+                {service.label}
+              </option>
+            ))}
           </select>
+          {formData.organisationType && (
+            <small style={{ display: 'block', marginTop: '0.5rem', color: '#666' }}>
+              {formData.organisationType === 'school' && 'All services available for public schools'}
+              {formData.organisationType === 'npo' && 'Annual financial statements and consultation available for NPOs'}
+              {formData.organisationType === 'company' && 'Annual financial statements and consultation available for companies'}
+              {formData.organisationType === 'individual' && 'Consultation services available'}
+            </small>
+          )}
         </div>
 
         {estimatedPrice && (

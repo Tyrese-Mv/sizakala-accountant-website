@@ -1,4 +1,4 @@
-import { HiMail, HiPhone, HiChatAlt2, HiChartBar, HiBookOpen } from 'react-icons/hi';
+import { HiMail, HiPhone, HiChatAlt2, HiChartBar, HiBookOpen, HiCurrencyDollar } from 'react-icons/hi';
 import { useSEO } from '../hooks/useSEO';
 import ContactForm from '../components/ContactForm';
 import './Contact.css';
@@ -145,6 +145,14 @@ const Contact = () => {
                 </h3>
                 <p>Monthly/quarterly bookkeeping and financial records management</p>
                 <p className="service-price">From R 150/month</p>
+              </div>
+              <div className="service-option">
+                <h3>
+                  <HiCurrencyDollar style={{ display: 'inline', marginRight: '0.5rem' }} />
+                  Funding Assistance
+                </h3>
+                <p>Section 18A registration and funding applications for public schools</p>
+                <p className="service-price">R 950 + 8% success fee</p>
               </div>
             </div>
           </div>
