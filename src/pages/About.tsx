@@ -50,7 +50,7 @@ const About = () => {
               Accountants, is an accounting firm established in 2015. We are
               registered Accountants with the Chartered Institute for Business
               Accountants (CIBA) with the designation Chartered Business Accountants in
-              Practice (BAPS).
+              Practice (CBAP) SA.
             </p>
             <p>
               What motivates us is the need to provide excellent accounting and
@@ -151,7 +151,7 @@ const About = () => {
                 transition={{ duration: 0.4, delay: 0.2 }}
               >
                 <h4>Designation</h4>
-                <p>Chartered Business Accountants in Practice (BAPS)</p>
+                <p>Chartered Business Accountants in Practice (CBAP) SA</p>
               </motion.div>
               <motion.div
                 className="credential-item"
