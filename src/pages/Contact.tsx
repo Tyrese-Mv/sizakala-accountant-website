@@ -8,7 +8,7 @@ const Contact = () => {
     title: 'Contact Sizakala Accountants - Get Your Free Quote | Durban',
     description: 'Contact Sizakala Accountants for school audit, bookkeeping, and funding assistance services. Located at 526 Durban Club Place. Call 067 034 3472 or email sizakalabsp@gmail.com.',
     keywords: 'contact Sizakala Accountants, Durban accountants, school audit quote, bookkeeping services contact, 526 Durban Club Place',
-    canonical: 'https://sizakalabsp.com/contact'
+    canonical: 'https://sizakalaaccountants.co.za/contact'
   });
 
   return (
@@ -91,8 +91,7 @@ const Contact = () => {
 
               <div className="info-box">
                 <h3>Company Information</h3>
-                <p>Sizakala Business Services Provider (Pty) Ltd</p>
-                <p>Trading as Sizakala Accountants</p>
+                <p>Sizakala Accountants (Pty) Ltd</p>
                 <p>Registration: 2022/863368/07</p>
                 <p className="designation">Chartered Business Accountant in Practice (CBAP) SA</p>
               </div>

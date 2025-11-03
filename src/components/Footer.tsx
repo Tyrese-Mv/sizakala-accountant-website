@@ -9,8 +9,8 @@ const Footer = () => {
       <div className="footer-container">
         <div className="footer-content">
           <div className="footer-col">
-            <h3>Sizakala Business Services Provider</h3>
-            <p>Trading as Sizakala Accountants</p>
+            
+            <h3>Sizakala Accountants</h3>
             <p>Reg: 2022/863368/07</p>
             <p className="credentials">Chartered Business Accountant in Practice (CBAP) SA</p>
           </div>
@@ -76,7 +76,7 @@ const Footer = () => {
 
         <div className="footer-bottom">
           <p>
-            &copy; {new Date().getFullYear()} Sizakala Business Services Provider
+            &copy; {new Date().getFullYear()} Sizakala Accountants
             (Pty) Ltd. All rights reserved.
           </p>
         </div>

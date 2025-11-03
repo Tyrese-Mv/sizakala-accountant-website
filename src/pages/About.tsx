@@ -8,7 +8,7 @@ const About = () => {
     title: 'About Sizakala Accountants - CBAP SA Certified School Accountants',
     description: 'Learn about Sizakala Accountants, CBAP SA registered professionals with CIBA and SAIT certification. Specializing in public school audits, bookkeeping, and funding assistance since 2015.',
     keywords: 'about Sizakala Accountants, CBAP accountant, CIBA certification, SAIT certified, school accounting specialists, Durban accountants',
-    canonical: 'https://sizakalabsp.com/about'
+    canonical: 'https://sizakalaaccountants.co.za/about'
   });
 
   return (
@@ -46,8 +46,7 @@ const About = () => {
           >
             <h2>Who We Are</h2>
             <p>
-              Sizakala Business Services Provider (Pty) Ltd, trading as Sizakala
-              Accountants, is an accounting firm established in 2015. We are
+              Sizakala Accountants (Pty) Ltd is an accounting firm established in 2015. We are
               registered Accountants with the Chartered Institute for Business
               Accountants (CIBA) with the designation Chartered Business Accountants in
               Practice (CBAP) SA.

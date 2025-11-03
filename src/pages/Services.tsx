@@ -12,7 +12,7 @@ const Services = () => {
     title: 'Our Services - School Audit, Bookkeeping & Funding Assistance | Sizakala',
     description: 'Professional accounting services for public schools, NPOs, and companies. School audits from R2,000, bookkeeping from R150/month, Section 18A registration and funding assistance. CBAP SA certified.',
     keywords: 'school audit pricing, bookkeeping services, funding assistance, Section 18A registration, NPO financial statements, school accounting services, Durban, South Africa',
-    canonical: 'https://sizakalabsp.com/services'
+    canonical: 'https://sizakalaaccountants.co.za/services'
   });
 
   return (
