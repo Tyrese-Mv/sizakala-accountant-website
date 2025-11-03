@@ -40,7 +40,7 @@ const ContactForm = () => {
 
     try {
       // FormSubmit endpoint - replace with your actual email
-      const formSubmitUrl = 'https://formsubmit.co/sizakalabsp@gmail.com';
+      const formSubmitUrl = 'https://formsubmit.co/info@sizakalaaccountants.co.za ';
 
       // Prepare form data with all fields
       const submitData = new FormData();

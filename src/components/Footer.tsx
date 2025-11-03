@@ -29,7 +29,7 @@ const Footer = () => {
             </p>
             <p>
               Email:{' '}
-              <a href="mailto:sizakalabsp@gmail.com">sizakalabsp@gmail.com</a>
+              <a href="mailto:info@sizakalaaccountants.co.za ">info@sizakalaaccountants.co.za </a>
             </p>
             <p>
               WhatsApp:{' '}

@@ -6,7 +6,7 @@ import './Contact.css';
 const Contact = () => {
   useSEO({
     title: 'Contact Sizakala Accountants - Get Your Free Quote | Durban',
-    description: 'Contact Sizakala Accountants for school audit, bookkeeping, and funding assistance services. Located at 526 Durban Club Place. Call 067 034 3472 or email sizakalabsp@gmail.com.',
+    description: 'Contact Sizakala Accountants for school audit, bookkeeping, and funding assistance services. Located at 526 Durban Club Place. Call 067 034 3472 or email info@sizakalaaccountants.co.za .',
     keywords: 'contact Sizakala Accountants, Durban accountants, school audit quote, bookkeeping services contact, 526 Durban Club Place',
     canonical: 'https://sizakalaaccountants.co.za/contact'
   });
@@ -36,12 +36,12 @@ const Contact = () => {
               </p>
 
               <div className="contact-cards">
-                <a href="mailto:sizakalabsp@gmail.com" className="contact-card">
+                <a href="mailto:info@sizakalaaccountants.co.za " className="contact-card">
                   <div className="contact-icon">
                     <HiMail />
                   </div>
                   <h3>Email Us</h3>
-                  <p>sizakalabsp@gmail.com</p>
+                  <p>info@sizakalaaccountants.co.za </p>
                   <span className="contact-action">Send Email →</span>
                 </a>
 
